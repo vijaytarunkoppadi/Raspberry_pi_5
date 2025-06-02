@@ -1,4 +1,3 @@
-Overlay should be add over 
 $cp *.dtbo /boot/overlay/
 $sudo vi /boot/firmware/config.txt
 
