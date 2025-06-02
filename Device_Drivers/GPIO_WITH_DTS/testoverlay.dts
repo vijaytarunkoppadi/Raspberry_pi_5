@@ -1,0 +1,17 @@
+/dts-v1/;
+/plugin/;
+/ {
+        compatible = "bcrm,bcm2712";
+        fragment@0{
+                target-path = "/";
+                __overlay__{
+                        my_device{
+                                compatible = "brightlight,mydev";
+                                status  = "okay";
+                                label   =  "test";
+                                my_value= <12>;
+                                red-led-gpio = <&gpio 21 0>;
+                        };
+                };
+        };
+  };
