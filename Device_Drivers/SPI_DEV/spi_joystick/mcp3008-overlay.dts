@@ -1,0 +1,32 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+    compatible = "brcm,bcm2712";
+    
+    fragment@0{
+        target = <&spidev0>;
+        __overlay__{
+                status = "disabled";
+        };
+    };
+
+    fragment@1 {
+        target = <&spi0>;
+        __overlay__ {
+            #address-cells = <1>;
+            #size-cells = <0>;
+            status = "okay";
+
+            mcp3008@0 {
+                compatible = "mcp3008";
+                reg = <0x0>;
+                spi-max-frequency = <1000000>;
+                spi-bits-per-word = <8>;
+                x-channel = <0>;
+                y-channel = <1>; 
+                status = "okay";
+            };
+        };
+    };
+};
